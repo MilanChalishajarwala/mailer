@@ -30,16 +30,13 @@ app.post('/send',  (req, res)=>{
 
 
 const output = `
-<p><b>New contact requested</b></p>
-<i>Contact info</i>
+<h2>Your Account Has been Succesfully created with follwing credentials</h2>
 <ul>
-<li>Name: ${req.body.name}</li> 
-<li>Name: ${req.body.company}</li> 
-<li>Name: ${req.body.email}</li> 
-<li>Name: ${req.body.phone}</li>
+<li>First Name: ${req.body.name}</li> 
+<li>Last Name: ${req.body.company}</li> 
+<li>Email: ${req.body.email}</li> 
+<li>Phone: ${req.body.phone}</li>
 </ul>
-<h3>Message</h3>
-<p>Name: ${req.body.message}</p>
 `
 
  // create reusable transporter object using the default SMTP transport
@@ -55,10 +52,9 @@ const output = `
 
   // send mail with defined transport object
   let info ={
-    from: '"Milan Chalishajarwala" <milanchal13@gmail.com>', // sender address
+    from: '"Travoscope Hotels®" <milanchal13@gmail.com>', // sender address
     to: req.body.email, // list of receivers
-    subject: "NodeMailer Email", // Subject line
-    text: "Hello World", // plain text body
+    subject: "Account Created!", // Subject line
     html: output // html body
   };
 
